@@ -1,0 +1,36 @@
+[build-system]
+requires = ["chronver", "setuptools>=66"]
+build-backend = "setuptools.build_meta"
+
+[project]
+authors = [
+    { name = "RadiaSoft LLC", email = "pip@radiasoft.net" },
+]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Natural Language :: English",
+    "Programming Language :: Python",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "pykern",
+]
+description = "Open Knowledge Format (OKF) Browser"
+dynamic = ["version"]
+name = "rsokf"
+readme = "README.md"
+
+[project.scripts]
+rsokf = "rsokf.rsokf_console:main"
+
+[project.urls]
+Homepage = "https://git.radiasoft.org/rsokf"
+
+[tool.setuptools.package-data]
+rsokf = ["package_data/**"]
+
+[tool.setuptools.packages.find]
+include = ["rsokf*"]
