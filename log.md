@@ -2,6 +2,14 @@
 
 ## 2026-07-15
 
+* 16:27:56 **Prompt**: "create pr"
+* 16:15:12 **Update**: Added a `think` bool config param (default False) to rsokf/config.py (pkconfig auto-parses bool via parse_bool, so RSOKF_CONFIG_THINK=1/true works) and passed `think=cfg.think` in the /api/chat payload in rsokf/ollama_client.py. Verified live on the fixture: think off (default) 2.1s vs think on 7.4s (~3.5x), both cited correctly. `pykern fmt run .` clean, `pykern test` 3/3.
+* 16:14:07 **Prompt**: "make that a config param so i can turn it on and off. leave it off by default"
+* 16:12:40 **Prompt**: "does it use the gpu"
+* 16:01:01 **Prompt**: "it takes 17s for a query on the big okf directory. is that to be expected?"
+* 15:56:33 **Answer**: Explained the CLI invocation: ollama server must be running; okf_dir is Required so set RSOKF_CONFIG_OKF_DIR (and optionally RSOKF_CONFIG_DB and other RSOKF_CONFIG_* overrides), then `rsokf query "question"`. Noted the default db writes rsokf.sqlite3 into okf_dir.
+* 15:56:20 **Prompt**: "how do i run it from the command line"
+* 15:55:38 **Update**: Checkpointed the branch (gckp, RadiaSoft-style since the loose personal-project gckp shorthand does not apply here): ran `pykern fmt run .` (reformatted config.py, index.py, __init__.py), confirmed `pykern test` 3/3, staged the full first slice with `git add -A` (includes the intentional CLAUDE.md brief deletion superseded by PLAN.md, and log.md), committed "Fix #1 add rsokf query RAG pipeline over Ollama" (first-commit format, no colon, no Co-Authored-By per user rule), and pushed 1-rsokf-query to origin (new upstream branch). No PR created (not requested).
 * 15:53:22 **Prompt**: "gckp"
 * 15:52:30 **Update**: Ran the real end-to-end pipeline against tests/pkcli/query_data with a live Ollama server (nomic-embed-text embeddings + qwen3:8b chat, DB pointed at a scratch sqlite so the fixture dir stays clean). In-context question ("How fast does the widget spin?") returned a correct cited answer ("The widget spins fast. (tables/widget, heading: Overview)"); out-of-context question ("customer refund policy") correctly reported the context does not contain the answer. Index sqlite was created and cached. Full slice (parse -> embed -> SQLite index -> cosine search -> chat) validated live.
 * 15:51:05 **Prompt**: "use tests/pkcli/query_data"

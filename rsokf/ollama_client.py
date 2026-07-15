@@ -20,7 +20,12 @@ def chat(messages):
     """
     r = requests.post(
         rsokf.config.cfg.ollama_uri + "/api/chat",
-        json=dict(model=rsokf.config.cfg.chat_model, messages=messages, stream=False),
+        json=dict(
+            model=rsokf.config.cfg.chat_model,
+            messages=messages,
+            stream=False,
+            think=rsokf.config.cfg.think,
+        ),
     )
     r.raise_for_status()
     return r.json()["message"]["content"]

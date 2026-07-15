@@ -23,5 +23,10 @@ cfg = pykern.pkconfig.init(
         str, "root directory of the OKF bundle to index and query"
     ),
     ollama_uri=("http://localhost:11434", str, "base URL of the local Ollama server"),
+    think=(
+        False,
+        bool,
+        "let a reasoning chat model emit its thinking phase before answering (slower)",
+    ),
     top_k=(5, int, "number of retrieved chunks to include in the answer prompt"),
 )
