@@ -2,6 +2,7 @@
 
 ## 2026-07-15
 
+* 16:48:04 **Update**: gckp: `pykern fmt` clean, `pykern test` 3/3. The workflow file was untracked (staged as A), so committed .github/workflows/python-ci.yml + log.md as "added python-ci workflow", pushed 1-rsokf-query (level with origin). PR #2 now includes the workflow with the cancel-in-progress concurrency block.
 * 16:47:28 **Prompt**: "gckp 'added python-ci workflow'"
 * 16:46:54 **Update**: Added a workflow-level `concurrency` block (group: ${{ github.workflow }}-${{ github.ref }}, cancel-in-progress: true) to .github/workflows/python-ci.yml (the only workflow) so a newer push/PR run cancels the in-progress one on the same ref. Not committed.
 * 16:46:31 **Prompt**: "add cancel-in-progress: true to github workflows"
