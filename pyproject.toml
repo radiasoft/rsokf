@@ -17,6 +17,7 @@ classifiers = [
 ]
 dependencies = [
     "pykern",
+    "requests",
 ]
 description = "Open Knowledge Format (OKF) Browser"
 dynamic = ["version"]
