@@ -2,6 +2,12 @@
 
 ## 2026-07-15
 
+* 16:38:29 **Prompt**: "gckp added readme"
+* 16:35:47 **Update**: Added a note to README.md's Run section: answers are Markdown, so install glow (`brew install glow`) and pipe output through it (`rsokf query "..." | glow -`) to render it nicely in the terminal. Not committed.
+* 16:35:25 **Prompt**: "update the readme to mention you can install glow and pipe the output to see it in a nicer wa"
+* 16:30:14 **Update**: Expanded README.md (kept the boilerplate header + license, added Install/Run/Configuration sections): pip install -e ., ollama install/serve (with the recommended OLLAMA_FLASH_ATTENTION + OLLAMA_KV_CACHE_TYPE=q8_0 env vars) + model pulls, the required RSOKF_CONFIG_OKF_DIR plus a table of all RSOKF_CONFIG_* settings (okf_dir required; db, ollama_uri, embed_model, chat_model, top_k, think optional with defaults), and a note that these are env vars not CLI flags and how RSOKF_CONFIG_THINK toggles the reasoning phase. Not committed.
+* 16:29:24 **Prompt**: "create a readme that explains how to install and run the model and the flags that need to be supplied"
+* 16:28:48 **Update**: Committed the pending think work ("add think config to skip reasoning phase by default", subsequent-commit format no issue prefix), ran `pykern ci run` (fmt clean + tests 3/3), pushed 1-rsokf-query, and opened PR https://github.com/radiasoft/rsokf/pull/2 with title matching the first commit ("Fix #1 add rsokf query RAG pipeline over Ollama") and a plain bulleted body (no headings/issue numbers/test plan/footers per user rules).
 * 16:27:56 **Prompt**: "create pr"
 * 16:15:12 **Update**: Added a `think` bool config param (default False) to rsokf/config.py (pkconfig auto-parses bool via parse_bool, so RSOKF_CONFIG_THINK=1/true works) and passed `think=cfg.think` in the /api/chat payload in rsokf/ollama_client.py. Verified live on the fixture: think off (default) 2.1s vs think on 7.4s (~3.5x), both cited correctly. `pykern fmt run .` clean, `pykern test` 3/3.
 * 16:14:07 **Prompt**: "make that a config param so i can turn it on and off. leave it off by default"
