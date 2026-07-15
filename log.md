@@ -2,6 +2,10 @@
 
 ## 2026-07-15
 
+* 16:47:28 **Prompt**: "gckp 'added python-ci workflow'"
+* 16:46:54 **Update**: Added a workflow-level `concurrency` block (group: ${{ github.workflow }}-${{ github.ref }}, cancel-in-progress: true) to .github/workflows/python-ci.yml (the only workflow) so a newer push/PR run cancels the in-progress one on the same ref. Not committed.
+* 16:46:31 **Prompt**: "add cancel-in-progress: true to github workflows"
+* 16:39:27 **Update**: gckp of the README work: `pykern fmt run .` clean, `pykern test` 3/3, committed README.md + log.md as "add README install, run, and configuration docs" (subsequent-commit format, no issue prefix), pushed 1-rsokf-query. Branch is level with origin, so PR #2 now includes the README (install/run/config + glow note).
 * 16:38:29 **Prompt**: "gckp added readme"
 * 16:35:47 **Update**: Added a note to README.md's Run section: answers are Markdown, so install glow (`brew install glow`) and pipe output through it (`rsokf query "..." | glow -`) to render it nicely in the terminal. Not committed.
 * 16:35:25 **Prompt**: "update the readme to mention you can install glow and pipe the output to see it in a nicer wa"
